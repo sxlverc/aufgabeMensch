@@ -6,10 +6,10 @@ int main()
 	char auswahl;
 	int menueAuswahl;
 	mensch mensch;
-	do
+	system("cls");
+	while (menueAuswahl != 6)
 	{
-		system("cls");
-		std::cout << "Was m\x94 \bchten sie machen?" << std::endl;
+		std::cout << "\nWas m\x94 \bchten sie machen?" << std::endl;
 		std::cout << "1. Essen" << std::endl;
 		std::cout << "2. Essen mit Kalorien" << std::endl;
 		std::cout << "3. Laufen" << std::endl;
@@ -19,6 +19,7 @@ int main()
 
 		std::cout << "Auswahl: " << std::endl;
 		std::cin >> menueAuswahl;
+		std::cout << std::endl;
 
 		switch (menueAuswahl)
 		{
@@ -47,8 +48,8 @@ int main()
 			break;
 		default:
 			std::cout << "Falsche eingabe" << std::endl;
+			break;
 		}
 	}
-	while (menueAuswahl != 6);
 	return 0;
 }
