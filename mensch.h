@@ -9,8 +9,8 @@
  {
  private:
   int iq = 0;
-  float gewicht = 0;
-  float km = 0;
+  double gewicht = 0;
+  double km = 0;
 
  public:
   int kcal = 0;
@@ -40,7 +40,7 @@
   }
 
   //Wiegen
-  void wiegen()
+  void wiegen() const
   {
    std::cout << "Der Mensch wiegt " << gewicht << "kg und hat einen IQ von " << iq << std::endl;
   }
