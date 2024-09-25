@@ -3,7 +3,6 @@
 
 int main()
 {
-	char auswahl;
 	int menueAuswahl;
 	mensch mensch;
 	system("cls");
