@@ -1,10 +1,12 @@
 #include <iostream>
 #include "mensch.h"
+#include "Umlaute.h"
 
-int menschauswahl() {
+
+int menschAuswahl() {
     int i;
     std::cout <<
-        "Menschauswahl:\n"
+        "Mensch ausw" << ae << "hlen:\n"
         "1. Mensch 1\n"
         "2. Mensch 2\n"
         "0. Beenden\n"
@@ -22,13 +24,13 @@ int main() {
 
     while (menueAuswahl != 0) {
         if (selectedMensch == nullptr) {
-            int menschAuswahl = menschauswahl();
+            int menschAuswahl = menschAuswahl();
             if (menschAuswahl == 0) break;
             selectedMensch = (menschAuswahl == 1) ? &mensch1 : &mensch2;
-            std::cout << "Mensch " << menschAuswahl << " wurde ausgewählt\n";
+            std::cout << "Mensch " << menschAuswahl << " wurde ausgew" << ae << "hlt\n";
         }
         std::cout << "\n"
-            "Was möchten Sie machen?\n"
+            "Was m" << oe << "chten Sie machen?\n"
             "1. Essen\n"
             "2. Essen mit Kalorien\n"
             "3. Laufen\n"
@@ -44,7 +46,7 @@ int main() {
             case 1: selectedMensch->essen(); break;
             case 2: {
                 int kcal;
-                std::cout << "Kilokalorienanzahl eingeben: ";
+                std::cout << "Kilokalorien anzahl eingeben: ";
                 std::cin >> kcal;
                 selectedMensch->essen(kcal);
                 break;

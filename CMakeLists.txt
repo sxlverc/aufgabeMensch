@@ -4,4 +4,5 @@ project(aufgabeMensch)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(aufgabeMensch main.cpp
-        mensch.h)
+        mensch.h
+        Umlaute.h)
