@@ -3,7 +3,7 @@
 #include "Umlaute.h"
 
 
-int menschAuswahl() {
+int menschauswahl() {
     int i;
     std::cout <<
         "Mensch ausw" << ae << "hlen:\n"
@@ -19,12 +19,11 @@ int main() {
     mensch mensch1, mensch2;
     int menueAuswahl = 69;
     system("cls");
-
     mensch* selectedMensch = nullptr;
 
     while (menueAuswahl != 0) {
         if (selectedMensch == nullptr) {
-            int menschAuswahl = menschAuswahl();
+            int menschAuswahl = menschauswahl();
             if (menschAuswahl == 0) break;
             selectedMensch = (menschAuswahl == 1) ? &mensch1 : &mensch2;
             std::cout << "Mensch " << menschAuswahl << " wurde ausgew" << ae << "hlt\n";
@@ -35,7 +34,9 @@ int main() {
             "2. Essen mit Kalorien\n"
             "3. Laufen\n"
             "4. Laufen mit KM\n"
-            "5. Wiegen\n"
+            "5. Ausgabe\n"
+            "6. Lecker Bierchen\n"
+            "7. Arbeiten\n"
             "9. Mensch wechseln\n"
             "0. Beenden\n"
             "Auswahl: ";
@@ -59,11 +60,20 @@ int main() {
                 selectedMensch->laufen(km);
                 break;
             }
-            case 5: selectedMensch->wiegen(); break;
+            case 5: selectedMensch->ausgabe(); break;
+            case 6: selectedMensch->leckerBierchen(); break;
+            case 7: selectedMensch->arbeiten(); break;
             case 9: selectedMensch = nullptr; break;
             case 0: break;
             default: std::cout << "Falsche Eingabe\n"; break;
         }
+
+        if (selectedMensch->holHappiness() == 0)
+        {
+            std::cout << "zu wenig lecker Bierchen, zu viel arbeit\n";
+            break;
+        }
+
     }
     return 0;
 }
