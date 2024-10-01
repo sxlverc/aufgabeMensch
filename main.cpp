@@ -1,54 +1,67 @@
 #include <iostream>
 #include "mensch.h"
 
-int main()
-{
-	int menueAuswahl;
-	mensch mensch;
-	system("cls");
-	while (menueAuswahl != 6)
-	{
-		std::cout << "\nWas m\x94 \bchten sie machen?" << std::endl;
-		std::cout << "1. Essen" << std::endl;
-		std::cout << "2. Essen mit Kalorien" << std::endl;
-		std::cout << "3. Laufen" << std::endl;
-		std::cout << "4. Laufen mit KM" << std::endl;
-		std::cout << "5. Wiegen" << std::endl;
-		std::cout << "6. Beenden" << std::endl;
+int menschauswahl() {
+    int i;
+    std::cout <<
+        "Menschauswahl:\n"
+        "1. Mensch 1\n"
+        "2. Mensch 2\n"
+        "0. Beenden\n"
+        "Auswahl: ";
+    std::cin >> i;
+    return i;
+}
 
-		std::cout << "Auswahl: " << std::endl;
-		std::cin >> menueAuswahl;
-		std::cout << std::endl;
+int main() {
+    mensch mensch1, mensch2;
+    int menueAuswahl = 69;
+    system("cls");
 
-		switch (menueAuswahl)
-		{
-		case 1:
-			mensch.essen();
-			break;
-		case 2:
-			std::cout << "Kilokalorienanzahl eingeben: " << std::endl;
-			int kcal;
-			std::cin >> kcal;
-			mensch.essen(kcal);
-			break;
-		case 3:
-			mensch.laufen();
-			break;
-		case 4:
-			std::cout << "Kilometeranzahl eingeben: " << std::endl;
-			float km;
-			std::cin >> km;
-			mensch.laufen(km);
-			break;
-		case 5:
-			mensch.wiegen();
-			break;
-		case 6:
-			break;
-		default:
-			std::cout << "Falsche eingabe" << std::endl;
-			break;
-		}
-	}
-	return 0;
+    mensch* selectedMensch = nullptr;
+
+    while (menueAuswahl != 0) {
+        if (selectedMensch == nullptr) {
+            int menschAuswahl = menschauswahl();
+            if (menschAuswahl == 0) break;
+            selectedMensch = (menschAuswahl == 1) ? &mensch1 : &mensch2;
+            std::cout << "Mensch " << menschAuswahl << " wurde ausgewählt\n";
+        }
+        std::cout << "\n"
+            "Was möchten Sie machen?\n"
+            "1. Essen\n"
+            "2. Essen mit Kalorien\n"
+            "3. Laufen\n"
+            "4. Laufen mit KM\n"
+            "5. Wiegen\n"
+            "9. Mensch wechseln\n"
+            "0. Beenden\n"
+            "Auswahl: ";
+
+        std::cin >> menueAuswahl;
+
+        switch (menueAuswahl) {
+            case 1: selectedMensch->essen(); break;
+            case 2: {
+                int kcal;
+                std::cout << "Kilokalorienanzahl eingeben: ";
+                std::cin >> kcal;
+                selectedMensch->essen(kcal);
+                break;
+            }
+            case 3: selectedMensch->laufen(); break;
+            case 4: {
+                float km;
+                std::cout << "Kilometeranzahl eingeben: ";
+                std::cin >> km;
+                selectedMensch->laufen(km);
+                break;
+            }
+            case 5: selectedMensch->wiegen(); break;
+            case 9: selectedMensch = nullptr; break;
+            case 0: break;
+            default: std::cout << "Falsche Eingabe\n"; break;
+        }
+    }
+    return 0;
 }
