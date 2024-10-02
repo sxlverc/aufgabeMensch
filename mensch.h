@@ -10,7 +10,7 @@
  {
  private:
   int iq = 0;
-  int happiness = 0;
+  int gluecklichkeitspunkte = 0;
   int kcal = 0;
 
   double gewicht = 0;
@@ -20,12 +20,12 @@
 
   void leckerBierchen()
   {
-   happiness = happiness + 1;
+   gluecklichkeitspunkte = gluecklichkeitspunkte + 1;
   }
 
   void arbeiten()
   {
-   happiness = happiness - 1;
+   gluecklichkeitspunkte = gluecklichkeitspunkte - 1;
   }
 
   //Normales essen
@@ -55,12 +55,12 @@
   //Wiegen
   void ausgabe() const
   {
-   std::cout << "Der Mensch wiegt " << gewicht << "kg, hat einen IQ von " << iq << "und hat " << happiness << " Gl" << ue << "cklichkeitspunkte" << std::endl;
+   std::cout << "Der Mensch wiegt " << gewicht << "kg, hat einen IQ von " << iq << "und hat " << gluecklichkeitspunkte << " Gl" << ue << "cklichkeitspunkte" << std::endl;
   }
 
-  [[nodiscard]] int holHappiness() const
+  [[nodiscard]] int holgluecklichkeitspunkte() const
   {
-   return happiness;
+   return gluecklichkeitspunkte;
   }
 
   //Konstruktor
@@ -68,7 +68,7 @@
   {
    iq = 100;
    gewicht = 70;
-   happiness = 5;
+   gluecklichkeitspunkte = 5;
   }
 
  };

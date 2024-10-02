@@ -19,13 +19,13 @@ int main() {
     mensch mensch1, mensch2;
     int menueAuswahl = 69;
     system("cls");
-    mensch* selectedMensch = nullptr;
+    mensch* ausgewaehlterMensch = nullptr;
 
     while (menueAuswahl != 0) {
-        if (selectedMensch == nullptr) {
+        if (ausgewaehlterMensch == nullptr) {
             int menschAuswahl = menschauswahl();
             if (menschAuswahl == 0) break;
-            selectedMensch = (menschAuswahl == 1) ? &mensch1 : &mensch2;
+            ausgewaehlterMensch = (menschAuswahl == 1) ? &mensch1 : &mensch2;
             std::cout << "Mensch " << menschAuswahl << " wurde ausgew" << ae << "hlt\n";
         }
         std::cout << "\n"
@@ -44,33 +44,33 @@ int main() {
         std::cin >> menueAuswahl;
 
         switch (menueAuswahl) {
-            case 1: selectedMensch->essen(); break;
+            case 1: ausgewaehlterMensch->essen(); break;
             case 2: {
                 int kcal;
                 std::cout << "Kilokalorien anzahl eingeben: ";
                 std::cin >> kcal;
-                selectedMensch->essen(kcal);
+                ausgewaehlterMensch->essen(kcal);
                 break;
             }
-            case 3: selectedMensch->laufen(); break;
+            case 3: ausgewaehlterMensch->laufen(); break;
             case 4: {
                 float km;
                 std::cout << "Kilometeranzahl eingeben: ";
                 std::cin >> km;
-                selectedMensch->laufen(km);
+                ausgewaehlterMensch->laufen(km);
                 break;
             }
-            case 5: selectedMensch->ausgabe(); break;
-            case 6: selectedMensch->leckerBierchen(); break;
-            case 7: selectedMensch->arbeiten(); break;
-            case 9: selectedMensch = nullptr; break;
+            case 5: ausgewaehlterMensch->ausgabe(); break;
+            case 6: ausgewaehlterMensch->leckerBierchen(); break;
+            case 7: ausgewaehlterMensch->arbeiten(); break;
+            case 9: ausgewaehlterMensch = nullptr; break;
             case 0: break;
             default: std::cout << "Falsche Eingabe\n"; break;
         }
 
-        if (selectedMensch->holHappiness() == 0)
+        if (ausgewaehlterMensch->holgluecklichkeitspunkte() == 0)
         {
-            std::cout << "zu wenig lecker Bierchen, zu viel arbeit\n";
+            std::cout << "Bist tot; zu wenig lecker Bierchen, zu viel arbeit\n";
             break;
         }
 
